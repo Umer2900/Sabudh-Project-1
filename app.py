@@ -1,7 +1,7 @@
 import streamlit as st
 import google.generativeai as genai
 import PyPDF2
-import docx  # For reading .docx files
+# import docx  # For reading .docx files
 import json  # To handle JSON parsing
 
 
