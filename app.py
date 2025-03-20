@@ -4,13 +4,33 @@ import PyPDF2
 # import docx  # For reading .docx files
 import json  # To handle JSON parsing
 
+####################################################################
+from dotenv import load_dotenv
+import os
 
-# Retrieve the API key from Streamlit secrets
-GEMINI_API_KEY = st.secrets["google"]["GEMINI_API_KEY"]
+# Load the environment variables from the .env file
+load_dotenv()
 
-# Configure the Gemini API directly with the API key
+# Get the API key from the environment variable
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+# Check if API key is loaded
+if not GEMINI_API_KEY:
+    raise ValueError("Gemini API key not found. Please set it in the code.")
+
+
+# Configure Gemini AI
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+##############################################################################
+
+
+# # Retrieve the API key from Streamlit secrets
+# GEMINI_API_KEY = st.secrets["google"]["GEMINI_API_KEY"]
+
+# # Configure the Gemini API directly with the API key
+# genai.configure(api_key=GEMINI_API_KEY)
+# model = genai.GenerativeModel(model_name="gemini-1.5-flash")
 
 # Helper function to extract text from a PDF
 def pdf_to_text(pdf_file):
