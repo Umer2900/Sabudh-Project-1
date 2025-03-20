@@ -15,8 +15,8 @@ load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # Check if API key is loaded
-if not GEMINI_API_KEY:
-    raise ValueError("Gemini API key not found. Please set it in the code.")
+# if not GEMINI_API_KEY:
+#     raise ValueError("Gemini API key not found. Please set it in the code.")
 
 
 # Configure Gemini AI
